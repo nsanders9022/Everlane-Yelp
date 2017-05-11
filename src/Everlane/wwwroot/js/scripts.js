@@ -20,7 +20,7 @@
             url: 'Yelp/GetReviews',
             success: function (businesses) {
                 for (var i = 0; i < 20; i++) {
-                    $('#yelp-result').append('<p>' + businesses.businesses[i][name]+ '</p>');
+                    $('#yelp-result').append('<p>' + businesses[i].name + '</p>');
                 }
             
             }

@@ -15,6 +15,8 @@ namespace Everlane.Models
         public string ZipCode { get; set; }
         public string Business { get; set; }
 
+        public string Name { get; set; }
+
 
         public static List<Yelp> GetReviews(string business, string zipcode)
         {
@@ -28,12 +30,14 @@ namespace Everlane.Models
             {
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
-            Console.WriteLine(response);
+            //Console.WriteLine(response);
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
             string jsonOutput = jsonResponse["businesses"].ToString();
-            Console.WriteLine(jsonOutput);
+            //Console.WriteLine(jsonOutput);
             var businessList = JsonConvert.DeserializeObject<List<Yelp>>(jsonOutput);
+            Console.WriteLine(businessList[0].Name);
             return businessList;
+
             //return jsonResponse.GetValue("businesses").ToString();
         }
 
