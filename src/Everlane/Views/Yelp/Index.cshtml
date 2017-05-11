@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Yelp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="yelp" action="GetReviews">
+    <label>Zip Code</label>
+    <input id="zipcode" name="newZipcode"/>
+    <label>Business Type</label>
+    <input id="business" name="newBusiness" />
+    <button type="submit">Submit</button>
+</form>
+
+<div id="yelp-result">
+
+</div>

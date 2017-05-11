@@ -11,6 +11,21 @@
             }
         }
     });
+    $('.yelp').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            data: $(this).serialize(),
+            url: 'Yelp/GetReviews',
+            success: function (businesses) {
+                for (var i = 0; i < 20; i++) {
+                    $('#yelp-result').append('<p>' + businesses.businesses[i][name]+ '</p>');
+                }
+            
+            }
+        })
+    })
 
 });
 

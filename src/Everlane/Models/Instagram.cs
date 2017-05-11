@@ -29,7 +29,7 @@ namespace Everlane.Models
             }).Wait();
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
             var instagramList = JsonConvert.DeserializeObject<List<Instagram>>(jsonResponse["url"].ToString());
-            return instagramList; 
+            return instagramList;
 
         }
 
